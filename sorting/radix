@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+// Function to find maximum number
+int getMax(int arr[], int n)
+{
+int max = arr[0];
+for(int i = 1; i < n; i++)
+{
+if(arr[i] > max)
+max = arr[i];
+}
+return max;
+}
+// Radix Sort Function
+void radixSort(int arr[], int n)
+{
+int max = getMax(arr, n);
+// Dynamic memory allocation for output array
+int *output = (int *)malloc(n * sizeof(int));
+// exp = 1 -> units place
+// exp = 10 -> tens place
+// exp = 100 -> hundreds place
+for(int exp = 1; max / exp > 0; exp *= 10)
+{
+int count[10] = {0};
+// Store count of digits
+for(int i = 0; i < n; i++)
+{
+int digit = (arr[i] / exp) % 10;
+count[digit]++;
+}
+// Change count[i] so that it contains
+// actual position of digit in output[]
+for(int i = 1; i < 10; i++)
+{
+count[i] += count[i - 1];
+}
+// Build output array
+for(int i = n - 1; i >= 0; i--)
+{
+int digit = (arr[i] / exp) % 10;
+output[count[digit] - 1] = arr[i];
+count[digit]--;
+}
+// Copy output to original array
+for(int i = 0; i < n; i++)
+{
+arr[i] = output[i];
+}
+}
+free(output);
+}
+// Display array
+void display(int arr[], int n)
+{
+for(int i = 0; i < n; i++)
+{
+printf("%d ", arr[i]);
+}
+printf("\n");
+}
+int main()
+{
+int n;
+printf("Enter number of elements: ");
+scanf("%d", &n);
+// Dynamic memory allocation for array
+int *arr = (int *)malloc(n * sizeof(int));
+printf("Enter elements:\n");
+
+for(int i = 0; i < n; i++)
+{
+scanf("%d", &arr[i]);
+}
+printf("\nBefore Sorting:\n");
+display(arr, n);
+radixSort(arr, n);
+printf("\nAfter Radix Sorting:\n");
+display(arr, n);
+free(arr);
+return 0;
+}
+
+//Sample Output :
+2 24 45 75 90 170 802//
