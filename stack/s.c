@@ -111,3 +111,20 @@ int main() {
  } while (choice != 7);
  return 0;
 }
+
+
+//Sample Output:
+Stack Operations
+1. Push using array
+2. Pop using array
+3. Display array stack
+4. Push using ADT
+5. Pop using ADT
+6. Display ADT stack
+7. Exit
+Enter choice: 1
+Enter value: 10
+Enter choice: 1
+Enter value: 20
+Enter choice: 3
+Stack using array: 20 10//

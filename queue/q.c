@@ -126,3 +126,20 @@ int main() {
  } while (choice != 7);
  return 0;
 }
+
+//Sample Output:
+Queue Operations
+1. Enqueue using array
+
+2. Dequeue using array
+3. Display array queue
+4. Enqueue using ADT
+5. Dequeue using ADT
+6. Display ADT queue
+7. Exit
+Enter choice: 1
+Enter value: 10
+Enter choice: 1
+Enter value: 20
+Enter choice: 3
+Queue using array: 10 20//

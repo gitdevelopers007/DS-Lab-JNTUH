@@ -146,3 +146,20 @@ int main() {
  } while (choice != 7);
  return 0;
 }
+
+//Sample Output:
+Doubly Linked List
+1. Create
+2. Insert at beginning
+3. Insert at end
+4. Delete from beginning
+5. Delete from end
+6. Traverse
+7. Exit
+Enter choice: 1
+How many nodes? 3
+Enter value 1: 11
+Enter value 2: 22
+Enter value 3: 33
+Enter choice: 6
+List: 11 22 33//
